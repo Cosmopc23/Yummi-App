@@ -7,60 +7,60 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
-    let ketchup = Ingredient(name: "Ketchup", quantity: 100, unit: "100L", category: "sauce", expiryDate: Date(timeIntervalSince1970: 1708858800))
+    let ingredients: [Ingredient] = [
+        Ingredient(name: "Ketchup", quantity: 100, unit: "100L", category: "Sauce", expiryDate: Date(timeIntervalSince1970: 1708858800)),
+        Ingredient(name: "Mayo", quantity: 4, unit: "4L", category: "Sauce", expiryDate: Date(timeIntervalSince1970: 1708889000)),
+        Ingredient(name:"Flour", quantity: 30, unit: "30kg",category: "Cooking", expiryDate: Date(timeIntervalSince1970: 1808840000))
+    ]
     
-    let mayo = Ingredient(name: "Mayo", quantity: 4, unit: "4L", category: "sauce", expiryDate: Date(timeIntervalSince1970: 1708859000))
-    
-    
-    var selectedIngredient: Int = 0
+    @State private var selectedIngredientIndex: Int = 0
     
     var body: some View {
-        VStack {
-            Text("🍎Yummi🍎")
-            .padding(20)
-            Text(ketchup.displayDetails())
+        Form {
+            Section(header: Text("🍎Yummi🍎")) {
+                Text(ingredients[selectedIngredientIndex].displayDetails())
+                    .padding(20)
+            }
             
-                .padding(20)
             Button("Next Ingredient", action: {
-                
+                selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
             })
             
+            Button("New Ingredient", actions:{
+                        
+                
+                
+                   })
         }
         .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
 
-
 struct Ingredient {
-    
     var name: String
     var quantity: Int
     var unit: String
     var category: String
     var expiryDate: Date
     
-    func displayDetails() -> String{
-     
+    func displayDetails() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let formattedExpiryDate = formatter.string(from: expiryDate)
         
-        
-        let details = """
-    Name: \(name)
-    Quantity: \(quantity)
-    Unit: \(unit)
-    Category: \(category)
-    Expiry Date: \(expiryDate)
-"""
-        
-        return details
+        return """
+            Name: \(name)
+            Quantity: \(quantity)
+            Unit: \(unit)
+            Category: \(category)
+            Expiry Date: \(formattedExpiryDate)
+        """
     }
-    
-    
 }
-
