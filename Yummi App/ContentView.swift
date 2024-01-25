@@ -18,7 +18,10 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("🍎Yummi🍎")) {
+            Section(header: Text("🍎Yummi🍎")
+                .font(.largeTitle)
+                .padding(20))
+            {
                 Text(ingredients[selectedIngredientIndex].displayDetails())
                     .padding(20)
             }
@@ -27,8 +30,8 @@ struct ContentView: View {
                 selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
             })
             
-            Button("New Ingredient", actions:{
-                        
+            Button("New Ingredient", action:{
+                print("")
                 
                 
                    })
