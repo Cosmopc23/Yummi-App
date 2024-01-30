@@ -7,63 +7,90 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    let ingredients: [Ingredient] = [
-        Ingredient(name: "Ketchup", quantity: 100, unit: "100L", category: "Sauce", expiryDate: Date(timeIntervalSince1970: 1708858800)),
-        Ingredient(name: "Mayo", quantity: 4, unit: "4L", category: "Sauce", expiryDate: Date(timeIntervalSince1970: 1708889000)),
-        Ingredient(name:"Flour", quantity: 30, unit: "30kg",category: "Cooking", expiryDate: Date(timeIntervalSince1970: 1808840000))
-    ]
-    
-    @State private var selectedIngredientIndex: Int = 0
-    
-    var body: some View {
-        Form {
-            Section(header: Text("🍎Yummi🍎")
-                .font(.largeTitle)
-                .padding(20))
-            {
-                Text(ingredients[selectedIngredientIndex].displayDetails())
-                    .padding(20)
-            }
-            
-            Button("Next Ingredient", action: {
-                selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
-            })
-            
-            Button("New Ingredient", action:{
-                print("")
-                
-                
-                   })
-        }
-        .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 struct Ingredient {
     var name: String
-    var quantity: Int
+    var quantity: String
     var unit: String
     var category: String
-    var expiryDate: Date
+    var expiryDate: String
     
     func displayDetails() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let formattedExpiryDate = formatter.string(from: expiryDate)
         
         return """
             Name: \(name)
             Quantity: \(quantity)
             Unit: \(unit)
             Category: \(category)
-            Expiry Date: \(formattedExpiryDate)
+            Expiry Date: \(expiryDate)
         """
+    }
+}
+
+struct ContentView: View {
+    @State var ingredients: [Ingredient] = [
+        Ingredient(name: "Ketchup", quantity: "100", unit: "100L", category: "Sauce", expiryDate:"1/1/2026"),
+        Ingredient(name: "Mayo", quantity: "4", unit: "4L", category: "Sauce", expiryDate: "24/12/2024"),
+        Ingredient(name:"Flour", quantity: "30", unit: "30kg",category: "Cooking", expiryDate: "12/02/2024")
+    ]
+    
+    @State private var selectedIngredientIndex: Int = 0
+    @State private var enteredIngredientName: String = ""
+    @State private var enteredQuantity: String = ""
+    @State private var enteredUnit: String = ""
+    @State private var enteredCategory: String = ""
+    @State private var enteredExpiryDate: String = ""
+    @State private var isShowingFields = false
+    
+    var body: some View {
+        Form {
+            Section(header: Text("🍎Yummi🍎")
+                .font(.largeTitle)
+                .padding(20)){
+                    
+                    Text(ingredients[selectedIngredientIndex].displayDetails())
+                        .padding(20)
+                    
+                    
+                    Button("Next Ingredient", action: {
+                        selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
+                    })
+                    
+                    Button("New Ingredient", action:{
+                        isShowingFields = true
+                    })
+                    
+                    Button("Delete this ingredient", action: {
+                        ingredients.remove(atOffsets: [selectedIngredientIndex])
+                    })
+                    
+                    if isShowingFields {
+                        TextField("Name: ", text: $enteredIngredientName)
+                        TextField("Quantity: ", text: $enteredQuantity)
+                        TextField("Unit: ", text: $enteredUnit)
+                        TextField("Category", text: $enteredCategory)
+                        TextField("Expiry Date", text: $enteredExpiryDate)
+                        
+                        Button("Submit", action:{
+                            ingredients.append(Ingredient(name: enteredIngredientName, quantity: enteredQuantity, unit: enteredUnit, category: enteredCategory, expiryDate: enteredExpiryDate ))
+                            
+                            selectedIngredientIndex = (ingredients).count - 1
+                            
+                            isShowingFields = false
+                        })
+                        
+                        
+                    }
+                    
+                    
+                }
+                .padding()
+        }
+    }
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
