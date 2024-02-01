@@ -43,7 +43,7 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("🍎Yummi🍎")
+            Section(header: Text("🍎 Yummi 🍎")
                 .font(.largeTitle)
                 .padding(20)){
                     
@@ -57,10 +57,6 @@ struct ContentView: View {
                     
                     Button("New Ingredient", action:{
                         isShowingFields = true
-                    })
-                    
-                    Button("Delete this ingredient", action: {
-                        ingredients.remove(atOffsets: [selectedIngredientIndex])
                     })
                     
                     if isShowingFields {
@@ -81,16 +77,35 @@ struct ContentView: View {
                         
                     }
                     
+                    Button("Delete this ingredient", action: {
+                        
+                        ingredients.remove(atOffsets: [selectedIngredientIndex])
+                        selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
+                    })
+                    
+                    
+                    Spacer()
+                    Button("Recipes", action: {
+                        
+                        
+                    })
+                    
+                    
+                    
+                    
+                    
+
+                    
                     
                 }
                 .padding()
         }
     }
+}
     
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
+
