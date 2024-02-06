@@ -26,6 +26,7 @@ struct Ingredient {
     }
 }
 
+
 struct ContentView: View {
     @State var ingredients: [Ingredient] = [
         Ingredient(name: "Ketchup", quantity: "100", unit: "100L", category: "Sauce", expiryDate:"1/1/2026"),
@@ -46,7 +47,7 @@ struct ContentView: View {
             Section(header: Text("🍎 Yummi 🍎")
                 .font(.largeTitle)
                 .padding(20)){
-                    
+            
                     Text(ingredients[selectedIngredientIndex].displayDetails())
                         .padding(20)
                     
@@ -85,17 +86,6 @@ struct ContentView: View {
                     
                     
                     Spacer()
-                    Button("Recipes", action: {
-                        
-                        
-                    })
-                    
-                    
-                    
-                    
-                    
-
-                    
                     
                 }
                 .padding()

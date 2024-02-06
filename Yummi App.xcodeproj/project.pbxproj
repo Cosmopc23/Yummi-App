@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE180AE32B723E1200F0BDF3 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE180AE22B723E1200F0BDF3 /* RecipesView.swift */; };
 		CECB5D612B6BCA2600790C27 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB5D602B6BCA2600790C27 /* DummyView.swift */; };
 		CEE2D9182B5FC4F30055E082 /* Yummi_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2D9172B5FC4F30055E082 /* Yummi_AppApp.swift */; };
 		CEE2D91A2B5FC4F30055E082 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2D9192B5FC4F30055E082 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE180AE22B723E1200F0BDF3 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		CECB5D602B6BCA2600790C27 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		CEE2D9142B5FC4F30055E082 /* Yummi App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yummi App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE2D9172B5FC4F30055E082 /* Yummi_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yummi_AppApp.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				CEE2D9172B5FC4F30055E082 /* Yummi_AppApp.swift */,
 				CEE2D9192B5FC4F30055E082 /* ContentView.swift */,
+				CE180AE22B723E1200F0BDF3 /* RecipesView.swift */,
 				CEE2D91B2B5FC4F50055E082 /* Assets.xcassets */,
 				CEE2D91D2B5FC4F50055E082 /* Preview Content */,
 				CECB5D602B6BCA2600790C27 /* DummyView.swift */,
@@ -262,6 +265,7 @@
 			files = (
 				CEE2D91A2B5FC4F30055E082 /* ContentView.swift in Sources */,
 				CECB5D612B6BCA2600790C27 /* DummyView.swift in Sources */,
+				CE180AE32B723E1200F0BDF3 /* RecipesView.swift in Sources */,
 				CEE2D9182B5FC4F30055E082 /* Yummi_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
