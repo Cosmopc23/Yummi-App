@@ -7,32 +7,7 @@
 
 import SwiftUI
 
-struct Ingredient {
-    var name: String
-    var quantity: String
-    var unit: String
-    var category: String
-    var expiryDate: String
-    
-    func displayDetails() -> String {
-        
-        return """
-            Name: \(name)
-            Quantity: \(quantity)
-            Unit: \(unit)
-            Category: \(category)
-            Expiry Date: \(expiryDate)
-        """
-    }
-}
-
-
 struct ContentView: View {
-    @State var ingredients: [Ingredient] = [
-        Ingredient(name: "Ketchup", quantity: "100", unit: "100L", category: "Sauce", expiryDate:"1/1/2026"),
-        Ingredient(name: "Mayo", quantity: "4", unit: "4L", category: "Sauce", expiryDate: "24/12/2024"),
-        Ingredient(name:"Flour", quantity: "30", unit: "30kg",category: "Cooking", expiryDate: "12/02/2024")
-    ]
     
     @State private var selectedIngredientIndex: Int = 0
     @State private var enteredIngredientName: String = ""
@@ -41,6 +16,7 @@ struct ContentView: View {
     @State private var enteredCategory: String = ""
     @State private var enteredExpiryDate: String = ""
     @State private var isShowingFields = false
+    @State private var ingredients = Ingredient.examples
     
     var body: some View {
         Form {
@@ -84,8 +60,8 @@ struct ContentView: View {
                         selectedIngredientIndex = (selectedIngredientIndex + 1) % ingredients.count
                     })
                     
+                
                     
-                    Spacer()
                     
                 }
                 .padding()
