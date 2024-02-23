@@ -25,14 +25,14 @@ struct Ingredient {
             Expiry Date: \(expiryDate)
         """
     }
-    
+
     
     
     
 #if DEBUG
     
     
-    static var examples =
+static var examples =
     [
         Ingredient(name: "Patty", quantity: "1", unit: "piece", category: "Cooking", expiryDate: "15/05/24"),
         Ingredient(name: "Burger Bun", quantity: "1", unit: "piece", category: "Bread", expiryDate: "28/06/24"),
