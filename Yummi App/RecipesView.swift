@@ -9,62 +9,32 @@ import SwiftUI
 
 
 struct RecipesView: View {
-
+    
     @State private var selectedRecipeIndex: Int = 0
     @State private var isShowingIngredients: Bool = false
-    @State private var recipes = Recipe.examples
+    @State var recipes: [Recipe]
     
-    //    var body: some View {
-    //        VStack{
-    //
-    //            Text("\(recipes[selectedRecipeIndex].name)")
-    //
-    //            Button("\(recipes[selectedRecipeIndex].displayIfFavourite())", action: {
-    //                recipes[selectedRecipeIndex].isFavourite.toggle()
-    //            })
-    //
-    //            Button("Show Ingredients", action: {
-    //                isShowingIngredients.toggle()
-    //            })
-    //
-    //            if isShowingIngredients{
-    //                Text("\(recipes[selectedRecipeIndex].displayRecipeIngredients())")
-    //            }
-    //
-    //            Stepper("Rating: \(recipes[selectedRecipeIndex].rating)",value: $recipes[selectedRecipeIndex].rating, in: 0...10)
-    //                .padding(.leading,100)
-    //                .padding(.trailing,100)
-    //
-    //
-    //
-    //            Button("Next Recipe", action: {
-    //                selectedRecipeIndex = (selectedRecipeIndex + 1) % recipes.count
-    //            })
-    //            .padding(20)
-    //            Button("Delete Recipe", action:{
-    //                recipes.remove(at: selectedRecipeIndex)
-    //                selectedRecipeIndex = (selectedRecipeIndex + 1) % recipes.count
-    //            })
-    //
-    //        }
-    //    }
-    //}
     
     var body: some View{
-        List{
+        NavigationStack{
             Section(header: Text("     🍎 Yummi 🍎")
                 .font(.largeTitle)
                 .padding(20)) {
-            
-            
-                    ForEach(0..<recipes.count,id: \.self) { i in
-                    Text("\(recipes[i].name)")
+                    
+                    
+                    ForEach(recipes ,id: \.self) { recipe in
+                        NavigationLink {
+                            RecipesViewDetailed(recipe: recipe)
+                        } label: {
+                            Text("\(recipe.name)")
+                        }
+                    }
+                    .padding(3)
                 }
-            }
         }
     }
 }
 
 #Preview {
-    RecipesView()
+    RecipesView(recipes: Recipe.examples)
 }

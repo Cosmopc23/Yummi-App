@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Recipe {
+struct Recipe: Hashable {
     var name: String
     var recipeIngredients: [String]
     var isFavourite: Bool
