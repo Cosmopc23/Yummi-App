@@ -17,20 +17,17 @@ struct RecipesView: View {
     
     var body: some View{
         NavigationStack{
-            Section(header: Text("     🍎 Yummi 🍎")
-                .font(.largeTitle)
-                .padding(20)) {
-                    
-                    
-                    ForEach(recipes ,id: \.self) { recipe in
-                        NavigationLink {
-                            RecipesViewDetailed(recipe: recipe)
-                        } label: {
-                            Text("\(recipe.name)")
-                        }
+            List{
+                ForEach(recipes ,id: \.self) { recipe in
+                    NavigationLink {
+                        RecipesViewDetailed(recipe: recipe)
+                    } label: {
+                        Text("\(recipe.name)")
                     }
-                    .padding(3)
                 }
+            }
+            .listStyle(.insetGrouped)
+                            
         }
     }
 }

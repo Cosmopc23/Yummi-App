@@ -7,8 +7,30 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    var body: some View{
-       Text("Nothing here yet")
+struct ContentView: View {
+    
+    @State var recipes: [Recipe]
+    
+    
+    var body: some View {
+        VStack {
+            Text("🍎 Yummi 🍎")
+                .font(.largeTitle)
+        }
+        NavigationStack{
+            List{
+                NavigationLink {
+                    RecipesView(recipes: recipes)
+                } label: {
+                    Text("Recipes")
+                }
+            }
+            .listStyle(.insetGrouped)
+            Spacer()
+        }
     }
+}
+
+#Preview {
+    ContentView(recipes: Recipe.examples)
 }

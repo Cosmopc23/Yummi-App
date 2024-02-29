@@ -14,30 +14,31 @@ struct RecipesViewDetailed: View {
     
     var body: some View {
         VStack{
-
-            Text("\(recipe.name)")
-
-            Button("\(recipe.displayIfFavourite())", action: {
-                recipe.isFavourite.toggle()
-            })
-            .padding(.bottom,20)
-            Text("Ingredients: ")
-            Text("\(recipe.displayRecipeIngredients())")
-                .padding(10)
-
-            Stepper("Rating: \(recipe.rating)",value: $recipe.rating, in: 0...10)
-                .padding(.leading,80)
-                .padding(.trailing,80)
-
-
-            .padding(20)
-//            Button("Delete Recipe", action:{
-//                recipes.remove(at: selectedRecipeIndex)
-//                selectedRecipeIndex = (selectedRecipeIndex + 1) % recipes.count
-//            })
-//            .padding(20)
-
-            
+            List{
+                Text("\(recipe.name)")
+                
+                
+                Button("\(recipe.displayIfFavourite())", action: {
+                    recipe.isFavourite.toggle()
+                })
+                
+                Text("Ingredients: ")
+                Text("\(recipe.displayRecipeIngredients())")
+                    
+                
+                Stepper("Rating: \(recipe.rating)",value: $recipe.rating, in: 0...10)
+                
+                
+                    
+                //            Button("Delete Recipe", action:{
+                //                recipes.remove(at: selectedRecipeIndex)
+                //                selectedRecipeIndex = (selectedRecipeIndex + 1) % recipes.count
+                //            })
+                //            .padding(20)
+                
+            }
         }
     }
 }
+
+
