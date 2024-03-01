@@ -79,8 +79,6 @@ struct IngredientsView: View {
             Button("OK", action: {})}
         .alert("Ingredient Deleted", isPresented: $deleteIngredientAlert) {
             Button("OK", action: {})}
-                
-        
     }
     
 }
