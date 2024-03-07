@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var recipes: [Recipe]
-    
+    @State var ingredients: [Ingredient]
     
     var body: some View {
         VStack {
@@ -24,6 +24,12 @@ struct ContentView: View {
                 } label: {
                     Text("Recipes")
                 }
+                
+                NavigationLink {
+                    IngredientsView(ingredients: ingredients)
+                } label: {
+                    Text("Ingredients")
+                }
             }
             .listStyle(.insetGrouped)
             Spacer()
@@ -32,5 +38,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(recipes: Recipe.examples)
+    ContentView(recipes: Recipe.examples, ingredients: Ingredient.examples)
 }

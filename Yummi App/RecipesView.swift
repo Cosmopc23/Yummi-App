@@ -10,8 +10,6 @@ import SwiftUI
 
 struct RecipesView: View {
     
-    @State private var selectedRecipeIndex: Int = 0
-    @State private var isShowingIngredients: Bool = false
     @State var recipes: [Recipe]
     
     

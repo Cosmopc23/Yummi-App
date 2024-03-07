@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Ingredient {
+struct Ingredient: Hashable {
     var name: String
     var quantity: String
     var unit: String

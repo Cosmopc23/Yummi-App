@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE180AE32B723E1200F0BDF3 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE180AE22B723E1200F0BDF3 /* RecipesView.swift */; };
+		CE2A3DF82B99F3AA007CAE9D /* IngredientsViewDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3DF72B99F3AA007CAE9D /* IngredientsViewDetailed.swift */; };
 		CE4D4D3E2B75093A00B20F39 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D4D3D2B75093A00B20F39 /* Ingredients.swift */; };
 		CEA997112B890750001A6926 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA997102B890750001A6926 /* IngredientsView.swift */; };
 		CEA997132B8907CF001A6926 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA997122B8907CF001A6926 /* Recipes.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		CE180AE22B723E1200F0BDF3 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		CE2A3DF72B99F3AA007CAE9D /* IngredientsViewDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewDetailed.swift; sourceTree = "<group>"; };
 		CE4D4D3D2B75093A00B20F39 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		CEA997102B890750001A6926 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 		CEA997122B8907CF001A6926 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
@@ -111,8 +113,9 @@
 			children = (
 				CEE2D9172B5FC4F30055E082 /* Yummi_AppApp.swift */,
 				CEE2D9192B5FC4F30055E082 /* ContentView.swift */,
-				CE180AE22B723E1200F0BDF3 /* RecipesView.swift */,
 				CEEF160C2B8DF4A000F4664C /* RecipesViewDetailed.swift */,
+				CE2A3DF72B99F3AA007CAE9D /* IngredientsViewDetailed.swift */,
+				CE180AE22B723E1200F0BDF3 /* RecipesView.swift */,
 				CEA997102B890750001A6926 /* IngredientsView.swift */,
 				CEE2D9272B5FC4F50055E082 /* Yummi AppTests */,
 				CEE2D91B2B5FC4F50055E082 /* Assets.xcassets */,
@@ -301,6 +304,7 @@
 				CECB5D612B6BCA2600790C27 /* DummyView.swift in Sources */,
 				CE180AE32B723E1200F0BDF3 /* RecipesView.swift in Sources */,
 				CEF7532B2B92439400A160B1 /* RecipesViewModel.swift in Sources */,
+				CE2A3DF82B99F3AA007CAE9D /* IngredientsViewDetailed.swift in Sources */,
 				CEEF160D2B8DF4A000F4664C /* RecipesViewDetailed.swift in Sources */,
 				CEE2D9182B5FC4F30055E082 /* Yummi_AppApp.swift in Sources */,
 			);
